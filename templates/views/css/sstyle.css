@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Syne:wght@400..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+  background: #921d21 !important;
+  color: #fff !important;
+}
+#logo {
+  width: 4vw;
+  margin-left: 2vw;
+}
+.navbar a {
+  color: #fff;
+}
+.navbar-brand {
+  padding: 0vw 0.5vw;
+  font-size: 2vw;
+  font-weight: 590;
+  color: black !important;
+}
+.navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding: 0vh 3vw;
+}
+
+#menu-title {
+  font-size: 2vw;
+  text-align: center;
+  padding: 2vw 2vw;
+}
+
+.menu-table {
+  width: 70%;
+  margin-left: 15%;
+}
+
+#thead {
+  background-color: black;
+}
+
+#click-btn {
+  text-transform: uppercase;
+  width: 30vw;
+  height: 4vw;
+  border-radius: 10px;
+  background: #801316;
+  color: #fff;
+}
+#click-btn:hover {
+  background-color: #9e2b2f;
+  color: black;
+}
+
+#clickhere {
+  margin-top: 6vw;
+  display: block;
+  text-align: center;
+  margin-bottom: 10vw;
+}
+
+#menu-thead,
+#menu-tbody {
+  text-align: center;
+}
+
+/* marquee Styles */
+.marquee-container {
+  background-color: antiquewhite;
+  margin-top: 10vh;
+  height: 30px;
+  overflow: hidden;
+  line-height: 30px;
+
+  .marquee {
+    top: 0;
+    left: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+  }
+
+  .marquee2 {
+    animation-delay: 15s;
+  }
+  b {
+    padding-left: 10px;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    left: 80%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+.corousal-img {
+  width: 5vw;
+}

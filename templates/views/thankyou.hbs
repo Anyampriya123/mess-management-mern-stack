@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You for Your Feedback</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    /* Elegant gradient background */
+    body {
+      background: linear-gradient(to bottom right, #fce4e6, #f8d5d9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Merriweather', serif;
+      margin: 0;
+    }
+
+    /* Card styling */
+    .thankyou-card {
+      max-width: 700px;
+      background-color: #ffffff;
+      padding: 60px 50px;
+      border-radius: 35px;
+      box-shadow: 0 30px 60px rgba(146, 29, 33, 0.3), 0 15px 40px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border: 4px solid #921d21; /* Highlight color */
+    }
+
+    /* Decorative element for header */
+    .thankyou-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 10px;
+      background: linear-gradient(90deg, #d4af37, #e6c25e, #d4af37);
+      border-radius: 5px;
+      z-index: 1;
+    }
+
+    /* Icon styling */
+    .thankyou-icon {
+      font-size: 5.5em;
+      color: #921d21; /* Main accent color */
+      margin-bottom: 20px;
+      z-index: 2;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    /* Heading styling */
+    .thankyou-card h1 {
+      font-size: 3em;
+      color: #921d21; /* Highlight color */
+      margin-bottom: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Message text styling */
+    .thankyou-card p {
+      font-size: 1.2em;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      z-index: 2;
+    }
+
+    /* Emphasized quote */
+    .thankyou-card .quote {
+      font-size: 1.5em;
+      color: #921d21; /* Highlight color */
+      font-weight: bold;
+      font-style: italic;
+      margin: 25px 0;
+      z-index: 2;
+    }
+
+    /* Signature styling */
+    .thankyou-card .signature {
+      font-size: 1.2em;
+      color: #444;
+      margin-top: 30px;
+      font-weight: 600;
+      font-style: italic;
+      z-index: 2;
+    }
+
+    /* Subtle hover effect */
+    .thankyou-card:hover {
+      transform: translateY(-3px);
+      transition: transform 0.3s;
+      box-shadow: 0 35px 70px rgba(146, 29, 33, 0.4), 0 20px 50px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="thankyou-card">
+    <div class="thankyou-icon">
+      <i class="bi bi-chat-heart-fill"></i>
+    </div>
+    <h1>Thank You!</h1>
+    <p>Your feedback means the world to us. We sincerely appreciate the time and effort you took to share your thoughts, helping us improve and grow.</p>
+    <p class="quote">"Your insights inspire our excellence."</p>
+    
+  </div>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

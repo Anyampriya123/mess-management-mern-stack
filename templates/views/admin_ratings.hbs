@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Admin Ratings Dashboard</title>
+    <style>
+        /* Resetting default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f1f3f8;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            color: #921d21;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 40px;
+            color: #444;
+        }
+
+        h3 {
+            font-size: 22px;
+            margin-top: 30px;
+            color: #555;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #921d21;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            margin: 20px auto;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            background-color: #7a1621;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: #921d21;
+            color: white;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+
+        /* Flexbox Container for Side-by-Side Cards */
+        .charts-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        /* Card Layout */
+        .card {
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            width: 48%; /* Make the cards responsive */
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            color: #333;
+        }
+
+        /* Chart Containers */
+        canvas {
+            width: 100% !important;
+            height: 250px !important;
+            margin: 20px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+                padding: 15px;
+            }
+
+            canvas {
+                height: 200px !important;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Main Title -->
+    <h1>All The Ratings From Students</h1>
+
+    <!-- Table for Ratings -->
+    <table class="feedback-table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Mess</th>
+                <th>Month</th>
+                <th>Date Range</th>
+                <th>Quantity</th>
+                <th>Quality</th>
+                <th>Timeliness</th>
+                <th>Cleanliness</th>
+                <th>Washing</th>
+                <th>Behavior</th>
+                <th>Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each ratings}}
+            <tr>
+                <td>{{this.email}}</td>
+                <td>{{this.Username}}</td>
+                <td>{{this.mess}}</td>
+                <td>{{this.month}}</td>
+                <td>{{this.dateRange}}</td>
+                <td>{{this.quantity}}</td>
+                <td>{{this.quality}}</td>
+                <td>{{this.timeliness}}</td>
+                <td>{{this.cleanliness}}</td>
+                <td>{{this.washing}}</td>
+                <td>{{this.behavior}}</td>
+                <td>{{this.remarks}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <!-- Check if averages are available -->
+    {{#if averages}}
+
+    <!-- Charts Section -->
+    <div class="charts-container">
+
+        <!-- Pie Chart Card -->
+        <div class="card">
+            <h3>Feedback Summary - Pie Chart</h3>
+            <canvas id="ratingPieChart"></canvas>
+            <script>
+                const averages = {
+                    quantity: {{averages.avgQuantity}},
+                    quality: {{averages.avgQuality}},
+                    timeliness: {{averages.avgTimeliness}},
+                    cleanliness: {{averages.avgCleanliness}},
+                    washing: {{averages.avgWashing}},
+                    behavior: {{averages.avgBehavior}}
+                };
+
+                const ctxPie = document.getElementById('ratingPieChart').getContext('2d');
+                new Chart(ctxPie, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Quantity', 'Quality', 'Timeliness', 'Cleanliness', 'Washing', 'Behavior'],
+                        datasets: [{
+                            label: 'Average Ratings',
+                            data: [
+                                averages.quantity, 
+                                averages.quality, 
+                                averages.timeliness, 
+                                averages.cleanliness, 
+                                averages.washing, 
+                                averages.behavior
+                            ],
+                            backgroundColor: [
+                                'rgba(146, 29, 33, 0.7)',
+                                'rgba(255, 99, 132, 0.7)',
+                                'rgba(75, 192, 192, 0.7)',
+                                'rgba(153, 102, 255, 0.7)',
+                                'rgba(255, 159, 64, 0.7)',
+                                'rgba(54, 162, 235, 0.7)'
+                            ],
+                            borderColor: [
+                                'rgba(146, 29, 33, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(54, 162, 235, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(tooltipItem) {
+                                        return tooltipItem.label + ': ' + tooltipItem.raw.toFixed(2);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+        </div>
+
+        <!-- Bar Graph Card -->
+        <div class="card">
+            <h3>Feedback Summary - Bar Graph</h3>
+            <canvas id="ratingBarChart"></canvas>
+            <script>
+                const ctxBar = document.getElementById('ratingBarChart').getContext('2d');
+                new Chart(ctxBar, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Quantity', 'Quality', 'Timeliness', 'Cleanliness', 'Washing', 'Behavior'],
+                        datasets: [{
+                            label: 'Average Ratings',
+                            data: [
+                                averages.quantity, 
+                                averages.quality, 
+                                averages.timeliness, 
+                                averages.cleanliness, 
+                                averages.washing, 
+                                averages.behavior
+                            ],
+                            backgroundColor: 'rgba(146, 29, 33, 0.7)',
+                            borderColor: 'rgba(146, 29, 33, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
+        </div>
+
+    </div>
+
+    {{else}}
+        <p>No average ratings available at this time.</p>
+    {{/if}}
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+ <div
+    style="
+      width: 100%;
+      background-color: #f8d9da;
+      color: black;
+      overflow: hidden;
+      position: relative;
+      height: 30px;
+      display: flex;
+      align-items: center;"
+  >
+    <div
+      style="
+        white-space: nowrap;
+        animation: marquee 10s linear infinite;"
+    >
+      <span style="padding: 0 15px; font-size: 0.9rem; font-weight: bold;">
+        Welcome to <b>Mess Management System</b>
+      </span>
+    </div>
+  </div>
+
+  <style>
+    @keyframes marquee {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+  </style>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Cards with Gaps</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <style>
+        .card-group {
+            margin: 2rem auto;
+            max-width: 90%;
+        }
+
+        .card {
+            border: 1px solid #921d21;
+            /* Border matching primary color */
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            /* Slight zoom on hover */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            /* Subtle shadow effect */
+        }
+
+        .card-title {
+            color: #921d21;
+            /* Primary color for titles */
+            font-weight: bold;
+        }
+
+        .card-footer {
+            background-color: #921d21;
+            color: #fff;
+            /* White text on footer */
+        }
+
+        .card-footer small {
+            font-size: 0.85rem;
+        }
+
+        .card-text {
+            color: #555;
+            /* Slightly muted text */
+        }
+
+        .card-group .card:not(:last-child) {
+            margin-right: 1rem;
+            /* Add spacing between cards */
+        }
+
+        @media (max-width: 768px) {
+            .card-group .card:not(:last-child) {
+                margin-right: 0;
+                /* Remove spacing for smaller screens */
+                margin-bottom: 1rem;
+                /* Add vertical spacing for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-group">
+        <div class="card">
+            <img class="card-img-top" src="/images/cards1.jpeg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Main Campus Srikakulam</h5>
+                <p class="card-text">
+
+                    The Main Campus Srikakulam Mess offers a vibrant and well-organized dining experience for students
+                    and staff. Located at the heart of the campus, it provides a variety of nutritious, freshly prepared
+                    meals catering to different tastes and dietary preferences. With a focus on quality and hygiene, the
+                    mess ensures that every meal is served in a clean, welcoming environment. It plays an integral role
+                    in the daily life of students, offering not just food, but a space to relax, socialize, and enjoy a
+                    sense of community. The Main Campus Srikakulam Mess is committed to providing a comfortable,
+                    satisfying, and wholesome dining experience for all. </p>
+            </div>
+            <div class="card-footer">
+                <small>Last updated 3 mins ago</small>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="/images/cards2.jpeg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Mini Campus in Shivani</h5>
+                <p class="card-text">
+
+                    The IIIT (Indian Institute of Information Technology) main campus in Srikakulam offers a
+                    well-maintained mess facility that provides nutritious and hygienic food to its students and staff.
+                    The mess serves a variety of meals, catering to diverse tastes and dietary preferences, including
+                    vegetarian and non-vegetarian options. The focus is on providing balanced, wholesome meals that
+                    support students' academic and extracurricular activities. With a clean and comfortable dining
+                    environment, the mess ensures a pleasant and satisfying dining experience, promoting the well-being
+                    of the campus community. </p>
+            </div>
+            <div class="card-footer">
+                <small>Last updated 3 mins ago</small>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="/images/cards1.jpeg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Campus-3 in Nuzvid</h5>
+                <p class="card-text">
+                    The IIIT Main Campus in Nuzvid is known for its well-equipped infrastructure and a vibrant academic
+                    environment. The campus features a student-friendly mess that serves a variety of nutritious and
+                    delicious meals to cater to the diverse tastes and dietary preferences of its students. The mess
+                    focuses on providing balanced meals that promote health and well-being, ensuring students have
+                    access to quality food that supports their demanding schedules. With a clean and hygienic
+                    environment, the mess fosters a communal atmosphere where students can socialize and relax while
+                    enjoying their meals. </p>
+            </div>
+            <div class="card-footer">
+                <small>Last updated 3 mins ago</small>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

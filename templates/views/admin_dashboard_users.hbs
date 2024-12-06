@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            <style>
+        /* Reset some default styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light gray background */
+            color: #333; /* Dark gray text color */
+        }
+
+        h1 {
+            text-align: center; /* Center the main heading */
+            margin: 20px 0; /* Space above and below */
+            color:#921d21; /* Bootstrap primary color */
+        }
+
+        a {
+            display: inline-block; /* Make the link a block element */
+            margin: 20px auto; /* Center the link */
+            padding: 10px 20px; /* Padding inside the link */
+            text-decoration: none; /* Remove underline */
+            background-color: #921d21; /* Bootstrap primary color */
+            color: white; /* Text color */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        a:hover {
+            background-color: #921d21; /* Darker blue on hover */
+        }
+
+        h2 {
+            text-align: center; /* Center the subheading */
+            margin: 20px 0; /* Space above and below */
+        }
+
+        table {
+            width: 80%; /* Table width */
+            margin: 20px auto; /* Center the table */
+            border-collapse: collapse; /* Collapse borders */
+            background-color: white; /* White background for the table */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            border-radius: 8px; /* Rounded corners for the table */
+            overflow: hidden; /* Ensures rounded corners are respected */
+        }
+
+        th, td {
+            padding: 12px; /* Padding inside table cells */
+            text-align: left; /* Align text to the left */
+            border-bottom: 1px solid #ddd; /* Light gray border between rows */
+        }
+
+        th {
+            background-color: #921d21; /* Bootstrap primary color for header */
+            color: white; /* White text for header */
+            font-weight: bold; /* Bold text for header */
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9; /* Light gray for even rows */
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1; /* Light gray background on row hover */
+        }
+
+        /* Optional: Responsive design for smaller screens */
+        @media (max-width: 600px) {
+            table {
+                width: 100%; /* Full width on small screens */
+            }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    
+<h1>Admin Dashboard</h1>
+<h2>Registered Users</h2>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tbody>
+      {{#each users}}
+      <tr>
+         <td>{{this.name}}</td>
+         <td>{{this.email}}</td>
+         <td>{{this.password}}</td>
+
+      </tr>
+      {{/each}}
+    </tbody>
+</table>  
+
+</body>
+</html>

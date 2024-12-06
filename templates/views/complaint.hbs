@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin-top: 50px;
+        }
+
+        .highlight {
+            background-color: #921d21;
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .btn-custom {
+            background-color: #921d21;
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .btn-custom:hover {
+            background-color: #a02828;
+        }
+
+        .form-control {
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: none;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #921d21;
+            box-shadow: 0 0 5px rgba(146, 29, 33, 0.5);
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .form-group input[type="file"] {
+            padding: 8px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2 class="highlight">Complaint Form</h2>
+        <form action="/complaint" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="studentname">Your Name</label>
+                <input type="text" class="form-control" id="studentname" name="studentname" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="studentidnumber">ID Number</label>
+                <input type="text" class="form-control" id="studentidnumber" name="studentidnumber" placeholder="Enter your ID Number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="studentemailaddress">Email Address</label>
+                <input type="email" class="form-control" id="studentemailaddress" name="studentemailaddress" placeholder="Enter your Email Address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="complaintDescription">Complaint Description</label>
+                <textarea class="form-control" id="complaintDescription" name="complaint" placeholder="Describe your complaint here..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="photoUpload">Upload Photo (optional)</label>
+                <input type="file" class="form-control-file" id="photoUpload" name="image" accept="image/*">
+            </div>
+
+            <button type="submit" class="btn-custom">Submit Complaint</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

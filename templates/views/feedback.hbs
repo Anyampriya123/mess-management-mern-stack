@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Form</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="feedback.css" />
+  </head>
+  <body>
+    <style>
+      body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+.form-container {
+  margin-top: 8vw;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10vw;
+}
+.form-group {
+  margin-bottom: 20px;
+  padding: 1vw;
+}
+.rating {
+  padding: 1vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Username{
+  margin-bottom: 10vw;
+  margin-bottom: 20px;
+  padding: 1vw;
+}
+.rating label {
+  margin: 0 5px;
+  cursor: pointer;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #ced4da;
+  border-radius: 50%;
+}
+.rating input[type="radio"] {
+  display: none;
+}
+.rating input[type="radio"]:checked + label {
+  background-color: #811c1fec;
+}
+.rating span {
+  width: 30px;
+  text-align: center;
+}
+.rating-text {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.rating-text span {
+  flex: 1;
+  text-align: center;
+  font-size: small;
+  font-style: italic;
+}
+
+.feedback-btn {
+  background: #801316;
+  color: #fff;
+}
+
+.feedback-btn:hover {
+  background-color: #9e2b2f;
+  color: black;
+}
+
+    </style>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Syne:wght@400..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+  background: #921d21 !important;
+  color: #fff !important;
+}
+#logo {
+  width: 4vw;
+  margin-left: 2vw;
+}
+.navbar a {
+  color: #fff;
+}
+.navbar-brand {
+  padding: 0vw 0.5vw;
+  font-size: 2vw;
+  font-weight: 590;
+  color: black !important;
+}
+.navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding: 0vh 3vw;
+}
+
+#menu-title {
+  font-size: 2vw;
+  text-align: center;
+  padding: 2vw 2vw;
+}
+
+.menu-table {
+  width: 70%;
+  margin-left: 15%;
+}
+
+#thead {
+  background-color: black;
+}
+
+#click-btn {
+  text-transform: uppercase;
+  width: 30vw;
+  height: 4vw;
+  border-radius: 10px;
+  background: #801316;
+  color: #fff;
+}
+#click-btn:hover {
+  background-color: #9e2b2f;
+  color: black;
+}
+
+#clickhere {
+  margin-top: 6vw;
+  display: block;
+  text-align: center;
+  margin-bottom: 10vw;
+}
+
+#menu-thead,
+#menu-tbody {
+  text-align: center;
+}
+
+/* marquee Styles */
+.marquee-container {
+  background-color: antiquewhite;
+  margin-top: 10vh;
+  height: 30px;
+  overflow: hidden;
+  line-height: 30px;
+
+  .marquee {
+    top: 0;
+    left: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+  }
+
+  .marquee2 {
+    animation-delay: 15s;
+  }
+  b {
+    padding-left: 10px;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    left: 80%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+.corousal-img {
+  width: 5vw;
+}
+
+    </style>
+       <script>
+        // Check if the 'update' variable is provided
+        const updateMessage = "{{update}}";
+        if (updateMessage) {
+            alert(updateMessage); // Show popup message
+        }
+    </script>
+    <!---Navbar Started-->
+
+    <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo03"
+          aria-controls="navbarTogglerDemo03"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <img id="logo" src="/images/logo.png" alt="" />
+        <a class="navbar-brand" href="#">MMS</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/index">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/complaint">Raise a complaint</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="/user_dashboard">User Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/menu">Menu</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!---Navbar Ended-->
+
+    <!--Feedback started-->
+    <div class="form-container container">
+       <h2>{{update}}</h2>
+      <h1 class="mb-3">Hello Student,</h1>
+      <p class="mb-4">Plexase share your feedback regarding the mess</p>
+      <hr class="hr hr-blurry" />
+      <form action="/feedback"   method="POST">
+        <div class="form-group">
+          
+          <label for="eventSelect"
+            >Which mess did you attend?
+            <span class="text-danger">*</span>
+            </label
+          >
+          <select name="mess" class="form-select" id="eventSelect" required>
+            <option  value="" disabled selected>Please Select</option>
+            <option value='girls_mess'>Girls Mess</option>
+            <option value="boys_mess">Boys Mess</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="monthSelect"
+            >Month <span class="text-danger">*</span></label
+          >
+          <select name="month" class="form-select" id="monthSelect" required>
+            <option value="" disabled selected>Please Select</option>
+            <option value="january">January</option>
+            <option value="february">February</option>
+            <option value="march">March</option>
+            <option value="april">April</option>
+            <option value="may">May</option>
+            <option value="june">June</option>
+            <option value="july">July</option>
+            <option value="august">August</option>
+            <option value="september">September</option>
+            <option value="october">October</option>
+            <option value="november">November</option>
+            <option value="december">December</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="weekSelect"
+            >Date Range <span class="text-danger">*</span></label
+          >
+          <select name="dateRange" class="form-select" id="weekSelect" required>
+            <option value="" disabled selected>Please Select</option>
+            <option value="1-10">1-10</option>
+            <option value="11-20">11-20</option>
+            <option value="21-end">21-Month End</option>
+          </select>
+        </div>
+        <hr class="hr hr-blurry" />
+        <div class="form-group">
+          <label>Quantity of food? <span class="text-danger">*</span></label>
+          <div class="rating">
+            <input
+              type="radio"
+              id="quantity1"
+              name="quantity"
+              value="1"
+              required
+            />
+            <label for="quantity1">1</label>
+            <input type="radio" id="quantity2" name="quantity" value=2 />
+            <label for="quantity2">2</label>
+            <input type="radio" id="quantity3" name="quantity" value=3 />
+            <label for="quantity3">3</label>
+            <input type="radio" id="quantity4" name="quantity" value=4 />
+            <label for="quantity4">4</label>
+            <input type="radio" id="quantity5" name="quantity" value=5 />
+            <label for="quantity5">5</label>
+            <input type="radio" id="quantity6" name="quantity" value=6 />
+            <label for="quantity6">6</label>
+            <input type="radio" id="quantity7" name="quantity" value=7 />
+            <label for="quantity7">7</label>
+            <input type="radio" id="quantity8" name="quantity" value=8 />
+            <label for="quantity8">8</label>
+            <input type="radio" id="quantity9" name="quantity" value=9 />
+            <label for="quantity9">9</label>
+            <input type="radio" id="quantity10" name="quantity" value=10 />
+            <label for="quantity10">10</label>
+          </div>
+          <div class="rating-text">
+            <span>Insufficient</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>Average</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>Plentiful</span>
+          </div>
+        </div>
+        <hr class="hr hr-blurry" />
+        <div class="form-group">
+          <label>Quality of food? <span class="text-danger">*</span></label>
+          <div class="rating">
+            <input
+              type="radio"
+              id="quality1"
+              name="quality"
+              value="1"
+              required
+            />
+            <label for="quality1">1</label>
+            <input type="radio" id="quality2" name="quality" value=2 />
+            <label for="quality2">2</label>
+            <input type="radio" id="quality3" name="quality" value=3 />
+            <label for="quality3">3</label>
+            <input type="radio" id="quality4" name="quality" value=4 />
+            <label for="quality4">4</label>
+            <input type="radio" id="quality5" name="quality" value=5 />
+            <label for="quality5">5</label>
+            <input type="radio" id="quality6" name="quality" value=6 />
+            <label for="quality6">6</label>
+            <input type="radio" id="quality7" name="quality" value=7 />
+            <label for="quality7">7</label>
+            <input type="radio" id="quality8" name="quality" value=8 />
+            <label for="quality8">8</label>
+            <input type="radio" id="quality9" name="quality" value=9 />
+            <label for="quality9">9</label>
+            <input type="radio" id="quality10" name="quality" value=10 />
+            <label for="quality10">10</label>
+          </div>
+          <div class="rating-text">
+            <span>Poor</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>Average</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>Excellent</span>
+          </div>
+        </div>
+        <hr class="hr hr-blurry" />
+        <div class="form-group">
+          <label>Timeliness of mess? <span class="text-danger">*</span></label>
+          <div class="rating">
+            <input
+              type="radio"
+              id="timeliness1"
+              name="timeliness"
+              value="1"
+              required
+            />
+            <label for="timeliness1">1</label>
+            <input type="radio" id="timeliness2" name="timeliness" value=2 />
+            <label for="timeliness2">2</label>
+            <input type="radio" id="timeliness3" name="timeliness" value=3 />
+            <label for="timeliness3">3</label>
+            <input type="radio" id="timeliness4" name="timeliness" value=4 />
+            <label for="timeliness4">4</label>
+            <input type="radio" id="timeliness5" name="timeliness" value=5 />
+            <label for="timeliness5">5</label>
+            <input type="radio" id="timeliness6" name="timeliness" value=6 />
+            <label for="timeliness6">6</label>
+            <input type="radio" id="timeliness7" name="timeliness" value=7 />
+            <label for="timeliness7">7</label>
+            <input type="radio" id="timeliness8" name="timeliness" value=8 />
+            <label for="timeliness8">8</label>
+            <input type="radio" id="timeliness9" name="timeliness" value=9 />
+            <label for="timeliness9">9</label>
+            <input
+              type="radio"
+              id="timeliness10"
+              name="timeliness"
+              value="10"
+            />
+            <label for="timeliness10">10</label>
+          </div>
+          <div class="rating-text">
+            <span>Late</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>Average</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>On Time</span>
+          </div>
+        </div>
+        <hr class="hr hr-blurry" />
+        <div class="form-group">
+          <label
+            >Cleanliness of the mess? <span class="text-danger">*</span></label
+          >
+          <div class="rating">
+            <input
+              type="radio"
+              id="cleanliness1"
+              name="cleanliness"
+              value="1"
+              required
+            />
+            <label for="cleanliness1">1</label>
+            <input
+              type="radio"
+              id="cleanliness2"
+              name="cleanliness"
+              value="2"
+            />
+            <label for="cleanliness2">2</label>
+            <input
+              type="radio"
+              id="cleanliness3"
+              name="cleanliness"
+              value="3"
+            />
+            <label for="cleanliness3">3</label>
+            <input
+              type="radio"
+              id="cleanliness4"
+              name="cleanliness"
+              value="4"
+            />
+            <label for="cleanliness4">4</label>
+            <input
+              type="radio"
+              id="cleanliness5"
+              name="cleanliness"
+              value="5"
+            />
+            <label for="cleanliness5">5</label>
+            <input
+              type="radio"
+              id="cleanliness6"
+              name="cleanliness"
+              value="6"
+            />
+            <label for="cleanliness6">6</label>
+            <input
+              type="radio"
+              id="cleanliness7"
+              name="cleanliness"
+              value="7"
+            />
+            <label for="cleanliness7">7</label>
+            <input
+              type="radio"
+              id="cleanliness8"
+              name="cleanliness"
+              value="8"
+            />
+            <label for="cleanliness8">8</label>
+            <input
+              type="radio"
+              id="cleanliness9"
+              name="cleanliness"
+              value="9"
+            />
+            <label for="cleanliness9">9</label>
+            <input
+              type="radio"
+              id="cleanliness10"
+              name="cleanliness"
+              value="10"
+            />
+            <label for="cleanliness10">10</label>
+          </div>
+          <div class="rating-text">
+            <span>Dirty</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>Average</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>Spotless</span>
+          </div>
+        </div>
+        <hr class="hr hr-blurry" />
+        <div class="form-group">
+          <label
+            >Are utensils washed properly?
+            <span class="text-danger">*</span></label
+          >
+          <div class="rating">
+            <input
+              type="radio"
+              id="washing1"
+              name="washing"
+              value="1"
+              required
+            />
+            <label for="washing1">1</label>
+            <input type="radio" id="washing2" name="washing" value=2 />
+            <label for="washing2">2</label>
+            <input type="radio" id="washing3" name="washing" value="3" />
+            <label for="washing3">3</label>
+            <input type="radio" id="washing4" name="washing" value="4" />
+            <label for="washing4">4</label>
+            <input type="radio" id="washing5" name="washing" value="5" />
+            <label for="washing5">5</label>
+            <input type="radio" id="washing6" name="washing" value="6" />
+            <label for="washing6">6</label>
+            <input type="radio" id="washing7" name="washing" value="7" />
+            <label for="washing7">7</label>
+            <input type="radio" id="washing8" name="washing" value="8" />
+            <label for="washing8">8</label>
+            <input type="radio" id="washing9" name="washing" value="9" />
+            <label for="washing9">9</label>
+            <input type="radio" id="washing10" name="washing" value="10" />
+            <label for="washing10">10</label>
+          </div>
+          <div class="rating-text">
+            <span>Not at all</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>Average</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>Perfectly</span>
+          </div>
+        </div>
+        <hr class="hr hr-blurry" />
+        <div class="form-group">
+          <label
+            >Behavior of workers towards students?
+            <span class="text-danger">*</span></label
+          >
+          <div class="rating">
+            <input
+              type="radio"
+              id="behavior1"
+              name="behavior"
+              value="1"
+              required
+            />
+            <label for="behavior1">1</label>
+            <input type="radio" id="behavior2" name="behavior" value="2" />
+            <label for="behavior2">2</label>
+            <input type="radio" id="behavior3" name="behavior" value="3" />
+            <label for="behavior3">3</label>
+            <input type="radio" id="behavior4" name="behavior" value="4" />
+            <label for="behavior4">4</label>
+            <input type="radio" id="behavior5" name="behavior" value="5" />
+            <label for="behavior5">5</label>
+            <input type="radio" id="behavior6" name="behavior" value="6" />
+            <label for="behavior6">6</label>
+            <input type="radio" id="behavior7" name="behavior" value="7" />
+            <label for="behavior7">7</label>
+            <input type="radio" id="behavior8" name="behavior" value="8" />
+            <label for="behavior8">8</label>
+            <input type="radio" id="behavior9" name="behavior" value="9" />
+            <label for="behavior9">9</label>
+            <input type="radio" id="behavior10" name="behavior" value="10" />
+            <label for="behavior10">10</label>
+          </div>
+          <div class="rating-text">
+            <span>Rude</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>Average</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>Friendly</span>
+          </div>
+        </div>
+        <hr class="hr hr-blurry" />
+        <div class="form-group">
+          <label for="remarks">Any remarks?</label>
+          <textarea class="form-control" id="remarks" name="remarks" rows="3"></textarea>
+        </div>
+        <button type="submit" class="feedback-btn btn">Submit Feedback</button>
+      </form>
+    </div>
+ 
+    <!--Feedback ended-->
+    <!-- Start of footer -->
+    <footer style="background-color: #eed6d3">
+      <div class="container p-0 pt-4">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 mb-2">
+            <h5 class="mb-3 text-dark">Mess Management System</h5>
+            <p>
+              The Mess Management System (MMS) is a web application that
+              streamlines mess operations in educational institutions. It allows
+              students to view daily menus, submit feedback, and raise
+              complaints, enhancing communication with mess administration
+            </p>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-2">
+            <h5 class="mb-3 text-dark">links</h5>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-1">
+                <a href="/" style="color: #4f4f4f">Home</a>
+              </li>
+              
+              <li class="mb-1">
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=yaswanth.syr@gmail.com"
+                  style="color: #4f4f4f"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-2">
+            <h5 class="mb-1 text-dark">Mess Timings</h5>
+            <table class="table" style="border-color: #666">
+              <tbody>
+                <tr>
+                  <td>Breakfast:</td>
+                  <td>7am - 9am</td>
+                </tr>
+                <tr>
+                  <td>Lunch:</td>
+                  <td>12:30pm - 2pm</td>
+                </tr>
+                <tr>
+                  <td>Dinner:</td>
+                  <td>7pm - 9pm</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2024 Copyright:
+        <span class="text-dark">MMS</span>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- End of footer -->
+    <!----Scriptssss-->
+   
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

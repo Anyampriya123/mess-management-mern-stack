@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Details</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f4f4f4, #dcdcdc); /* Light gradient background */
+            color: #333; /* Default text color */
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #921d21; /* Primary color for headings */
+        }
+
+        /* Container for cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+        }
+
+        /* Card styles */
+        .complaint-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .complaint-card:hover {
+            transform: translateY(-5px); /* Hover effect */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Shadow on hover */
+        }
+
+        .complaint-card img {
+            width: 100%; /* Make image cover the card width */
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .complaint-card h3 {
+            color: #921d21; /* Heading color */
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .complaint-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .complaint-card .download-btn {
+            display: inline-block;
+            background-color: #921d21;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .complaint-card .download-btn:hover {
+            background-color: #7a1617;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Admin Dashboard</h1>
+    <h2>Complaint Details</h2>
+
+    <!-- Cards Container -->
+    <div class="cards-container">
+        {{#each complaints}} <!-- Loop through each complaint -->
+        <div class="complaint-card">
+            <h3>{{this.studentname}}</h3>
+            <p><strong>Email:</strong> {{this.email}}</p>
+            <p><strong>ID Number:</strong> {{this.idnumber}}</p>
+            <p><strong>Complaint:</strong> {{this.complaint}}</p>
+
+            {{#if this.imageUrl}} <!-- Display image if available -->
+                <img src="{{this.imageUrl}}" alt="Complaint Image">
+                <a href="{{this.imageUrl}}" class="download-btn" download>Download Image</a>
+            {{else}} <!-- If no image is uploaded -->
+                <p>No image uploaded.</p>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+    
+
+</body>
+
+</html>
